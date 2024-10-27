@@ -17,9 +17,15 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
+
+user_input = int(input("Enter a positive number: "))
 factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+while user_input > 0:
+    factorial = user_input*factorial
+    user_input -= 1
+
+print(f"The result of the factorial based on the given bound is {factorial}.")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
