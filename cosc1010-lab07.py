@@ -1,6 +1,6 @@
 # Daniel Keunig
 # UWYO COSC 1010
-# 10/27/2024
+# 10/29/2024
 # Lab 07
 # Lab Section: 11
 # Sources, people worked with, help given to: 
@@ -16,17 +16,35 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-
-user_input = int(input("Enter a positive number: "))
+x = 0
 factorial = 1
 
-while user_input > 0:
-    factorial = user_input*factorial
-    user_input -= 1
+while x == 0:
 
-print(f"The result of the factorial based on the given bound is {factorial}.")
+    try:
+        user_input = int(input("Enter a positive number: "))
+        
+        if user_input < 0:
+            print("Please enter a positive number and try again.")
+        
+        elif user_input == 0:
+            print("The factorial of 0 is 1.")
+            x = 1
+        
+        else:
+            while user_input > 0:
+                factorial = user_input*factorial
+                user_input -= 1
 
-print("*"*75)
+            print(f"The result of the factorial based on the given bound is {factorial}.")
+            x = 1
+
+    except(ValueError):
+        print("Please enter a positive number and try again.")
+
+
+
+    print("*"*75)
 
 
 # Now you will be creating a two operand calculator
