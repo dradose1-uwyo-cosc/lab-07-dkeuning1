@@ -46,6 +46,40 @@ while x == 0:
 
     print("*"*75)
 
+# Create a while loop that prompts a user for input of an integer values
+# Sum all inputs. When the user enters 'exit' (regardless of casing) end the loop
+# Upon ending the loop print the sum
+# Your program should accept both positive and negative input
+# Remember all inputs from stdin are strings, so you will need to convert the string to an int first
+# Before you convert the number you need to check to ensure that it is a numeric string
+    # To do so you can use the methods `.isdigit()` or `.isnumeric()`
+    # This will return true if every digit in your string is a numerical character
+    # However, that means a string such as `-1` would return false, even though your program should accept negative values
+    # This means you will need to have a check to see if `-` is first character of the string before you check if it is numerical
+    # If it is in the string you will need to remove the `-` character, and know that it will be a negative number, so a subtraction from the overall sum
+    # I recommend checking out: https://www.w3schools.com/python/ref_string_replace.asp to figure out how one may remove a character from a string
+# All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
+# The sum should start at 0 
+
+user_input2 = 0
+sum = 0
+
+while user_input2 != 'exit' or 'Exit' or 'EXIT':
+    user_input2 = input("Enter a number, type 'exit' to exit. ")
+    try:
+        user_input2 = int(user_input2)
+        sum = sum + user_input2
+        print(f"Current Sum: {sum}")
+    except(ValueError):
+        if user_input2 == 'exit' or 'Exit' or 'EXIT':
+            break
+        else:
+            print("Please enter an integer, or type 'exit' to exit. ")
+
+print(f"Final Sum: {sum}")
+
+print("*"*75)
+
 
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,%
